@@ -1,5 +1,6 @@
 ## lzmx_send_message      
 ### 自制Dify插件：中国电信量子密信消息推送器
+#### 注：发行版插件安装包，直接放在了本项目仓库里！
 ![img](./_assets/lzmx.png)
 
 **Author:** HnBigVolibear 湖南大白熊
