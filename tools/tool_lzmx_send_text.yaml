@@ -1,0 +1,79 @@
+identity:
+  name: tool_lzmx_send_text
+  author: HnBigVolibear
+  label:
+    en_US: tool_lzmx_send_text
+    zh_Hans: 量子密信文本推送器
+    pt_BR: tool_lzmx_send_text
+description:
+  human:
+    en_US: tool_lzmx_send_text, can send text to lzmx-group by your key
+    zh_Hans: 量子密信文本推送器, 可将指定的文本, 推送至指定机器人key的群聊中。
+    pt_BR: tool_lzmx_send_text, can send text to lzmx-group by your key
+  llm: 量子密信文本推送器, 可将指定的文本, 推送至指定机器人key的群聊中。
+parameters:
+  - name: robot_key
+    type: secret-input
+    required: true
+    label:
+      en_US: lzmx robot Key
+      zh_Hans: 量子密信群机器人Key
+      pt_BR: lzmx robot Key
+    human_description:
+      en_US: lzmx robot key
+      zh_Hans: 量子密信群机器人key
+      pt_BR: lzmx robot key
+    llm_description: 量子密信群机器人key
+    form: llm
+  - name: send_text
+    type: string
+    required: true
+    label:
+      en_US: send text
+      zh_Hans: 发送内容
+      pt_BR: send text
+    human_description:
+      en_US: send text
+      zh_Hans: 发送内容
+      pt_BR: send text
+    llm_description: 发送内容
+    form: llm
+  - name: mention_list
+    type: string
+    required: false
+    label:
+      en_US: mention list
+      zh_Hans: 艾特人员列表(手机号)
+      pt_BR: mention list
+    human_description:
+      en_US: mention list
+      zh_Hans: 艾特人员列表(手机号)。字符串形式。填入需艾特人的手机号即可, 多个人用逗号或分号隔开, 若要艾特全体则直接填 "所有人" 即可。
+      pt_BR: mention list
+    llm_description: 艾特人员列表(手机号)。字符串形式。填入需艾特人的手机号即可, 多个人用逗号或分号隔开, 若要艾特全体则直接填 "所有人" 即可。
+    form: llm
+  - name: is_www_to_lzmx
+    type: select
+    required: true
+    default: 'DCN'
+    label:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    human_description:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    llm_description: 选择发送网络类型
+    form: form
+    options:
+      - label: 
+          en_US: 'DCN'
+          zh_Hans: 'DCN'
+        value: 'DCN'
+      - label: 
+          en_US: 'Internet'
+          zh_Hans: '公网'
+        value: '公网'
+extra:
+  python:
+    source: tools/tool_lzmx_send_text.py

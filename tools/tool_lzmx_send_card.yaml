@@ -1,0 +1,105 @@
+identity:
+  name: tool_lzmx_send_card
+  author: HnBigVolibear
+  label:
+    en_US: tool_lzmx_send_card
+    zh_Hans: 量子密信图文卡片推送器
+    pt_BR: tool_lzmx_send_card
+description:
+  human:
+    en_US: tool_lzmx_send_card, can send card to lzmx-group by your key
+    zh_Hans: 量子密信图文卡片推送器, 可将指定的资讯卡片信息, 推送至指定机器人key的群聊中, 类似公众号的推送资讯。
+    pt_BR: tool_lzmx_send_card, can send card to lzmx-group by your key
+  llm: 量子密信图文卡片推送器, 可将指定的资讯卡片信息, 推送至指定机器人key的群聊中, 类似公众号的推送资讯。
+parameters:
+  - name: robot_key
+    type: secret-input
+    required: true
+    label:
+      en_US: lzmx robot Key
+      zh_Hans: 量子密信群机器人Key
+      pt_BR: lzmx robot Key
+    human_description:
+      en_US: lzmx robot key
+      zh_Hans: 量子密信群机器人key
+      pt_BR: lzmx robot key
+    llm_description: 量子密信群机器人key
+    form: llm
+  - name: card_title
+    type: string
+    required: true
+    label:
+      en_US: card title
+      zh_Hans: 卡片标题
+      pt_BR: card title
+    human_description:
+      en_US: card title
+      zh_Hans: 卡片标题
+      pt_BR: card title
+    llm_description: 卡片标题
+    form: llm
+  - name: card_description
+    type: string
+    required: true
+    label:
+      en_US: card description
+      zh_Hans: 卡片描述
+      pt_BR: card description
+    human_description:
+      en_US: card description
+      zh_Hans: 卡片描述
+      pt_BR: card description
+    llm_description: 卡片描述正文
+    form: llm
+  - name: card_url
+    type: string
+    required: true
+    label:
+      en_US: card url
+      zh_Hans: 跳转链接
+      pt_BR: card url
+    human_description:
+      en_US: card url
+      zh_Hans: 跳转链接
+      pt_BR: card url
+    llm_description: 跳转链接
+    form: llm
+  - name: card_pic_url
+    type: string
+    required: true
+    label:
+      en_US: card pic url
+      zh_Hans: 卡片背景图链接
+      pt_BR: card pic url
+    human_description:
+      en_US: card pic url
+      zh_Hans: 卡片背景图链接
+      pt_BR: card pic url
+    llm_description: 卡片背景图链接
+    form: llm
+  - name: is_www_to_lzmx
+    type: select
+    required: true
+    default: 'DCN'
+    label:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    human_description:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    llm_description: 选择发送网络类型
+    form: form
+    options:
+      - label: 
+          en_US: 'DCN'
+          zh_Hans: 'DCN'
+        value: 'DCN'
+      - label: 
+          en_US: 'Internet'
+          zh_Hans: '公网'
+        value: '公网'
+extra:
+  python:
+    source: tools/tool_lzmx_send_card.py

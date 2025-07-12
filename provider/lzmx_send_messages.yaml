@@ -1,0 +1,43 @@
+identity:
+  author: HnBigVolibear
+  name: lzmx_send_messages
+  label:
+    en_US: chinatelecom_lzmx_send_messages
+    zh_Hans: 中国电信量子密信消息推送器
+    pt_BR: chinatelecom_lzmx_send_messages
+  description:
+    en_US: A tool for lzmx sending messages, include 4 types ———— text、image、file、card, via both www and dcn network
+    zh_Hans: '中国电信量子密信消息推送器, 支持推送4种消息: 文本、图片、文件、图文卡片。支持公网和DCN网。'
+    pt_BR: A tool for lzmx sending messages, include 4 types ———— text、image、file、card, via both www and dcn network
+    # 特别说明: 推送图片与文件, 需Dify平台.env全局配置文件里修改设置FILES_URL参数为服务器IP地址, 否则本插件无法生效!
+  icon: lzmx.png
+  tags: # 标签，用于前端展示
+    - utilities
+    - social
+    - productivity
+# 可选，直接限定工具所使用的网络类型！
+# credentials_for_provider:
+#   is_www_to_lzmx: 
+#     type: select # 对应界面中的开关
+#     required: false
+#     default: 'DCN网'
+#     label:
+#       en_US: Choose Your Network to Push message
+#       zh_Hans: 选择消息推送的网络
+#     options:
+#       - label: 
+#           en_US: 'DCN'
+#           zh_Hans: 'DCN网'
+#         value: 'DCN网'
+#       - label: 
+#           en_US: 'Internet'
+#           zh_Hans: '公网'
+#         value: '公网'
+tools:
+  - tools/tool_lzmx_send_text.yaml
+  - tools/tool_lzmx_send_img.yaml
+  - tools/tool_lzmx_send_file.yaml
+  - tools/tool_lzmx_send_card.yaml
+extra:
+  python:
+    source: provider/lzmx_send_messages.py

@@ -1,0 +1,107 @@
+identity:
+  name: tool_lzmx_send_img
+  author: HnBigVolibear
+  label:
+    en_US: tool_lzmx_send_img
+    zh_Hans: 量子密信图片推送器
+    pt_BR: tool_lzmx_send_img
+description:
+  human:
+    en_US: tool_lzmx_send_img, can send image to lzmx-group by your key !
+    zh_Hans: 量子密信图片推送器, 可将指定的图片, 推送至指定机器人key的群聊中。本指令非常强大, 支持批量发送多张图片, 支持转换Base64编码图片并发送! 
+    pt_BR: tool_lzmx_send_img, can send image to lzmx-group by your key !
+  llm: 量子密信图片推送器, 可将指定的图片, 推送至指定机器人key的群聊中。本指令非常强大, 支持批量发送多张图片, 支持转换Base64编码图片并发送! 
+parameters:
+  - name: robot_key
+    type: secret-input
+    required: true
+    label:
+      en_US: lzmx robot Key
+      zh_Hans: 量子密信群机器人Key
+      pt_BR: lzmx robot Key
+    human_description:
+      en_US: lzmx robot key
+      zh_Hans: 量子密信群机器人key
+      pt_BR: lzmx robot key
+    llm_description: 量子密信群机器人key
+    form: llm
+  - name: send_img_files
+    type: files
+    required: false
+    label:
+      en_US: send img files
+      zh_Hans: 发送的图片文件流(支持多选)
+      pt_BR: send img files
+    human_description:
+      en_US: send img files
+      zh_Hans: 发送的图片文件流(支持多选)
+      pt_BR: send img files
+    llm_description: 发送的图片文件(支持多选)
+    form: llm
+  - name: send_img_base64
+    type: string
+    required: false
+    label:
+      en_US: send img base64
+      zh_Hans: 发送的图片的base64编码
+      pt_BR: send img base64
+    human_description:
+      en_US: send img base64
+      zh_Hans: '发送的图片的base64编码, 形如: data:image/png;base64,......'
+      pt_BR: send img base64
+    llm_description: '发送的图片的base64编码字符串, 形如: data:image/png;base64,......'
+    form: llm
+  - name: img_width
+    type: number
+    required: false
+    default: 0
+    label:
+      en_US: img_width
+      zh_Hans: 图片密信内展示宽度px
+      pt_BR: img_width
+    human_description:
+      en_US: img_width
+      zh_Hans: 图片密信内展示宽度, 整数类型, 单位px, 默认为空即展示图片原始宽高!
+      pt_BR: img_width
+    llm_description: 图片密信内展示宽度, 整数类型, 单位px, 默认为空即展示图片原始宽高!
+    form: llm
+  - name: img_height
+    type: number
+    required: false
+    default: 0
+    label:
+      en_US: img_height
+      zh_Hans: 图片密信内展示高度px
+      pt_BR: img_height
+    human_description:
+      en_US: img_height
+      zh_Hans: 图片密信内展示高度, 整数类型, 单位px, 默认为空即展示图片原始宽高!
+      pt_BR: img_height
+    llm_description: 图片密信内展示高度, 整数类型, 单位px, 默认为空即展示图片原始宽高!
+    form: llm
+  - name: is_www_to_lzmx
+    type: select
+    required: true
+    default: 'DCN'
+    label:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    human_description:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    llm_description: 选择发送网络类型
+    form: form
+    options:
+      - label: 
+          en_US: 'DCN'
+          zh_Hans: 'DCN'
+        value: 'DCN'
+      - label: 
+          en_US: 'Internet'
+          zh_Hans: '公网'
+        value: '公网'
+extra:
+  python:
+    source: tools/tool_lzmx_send_img.py

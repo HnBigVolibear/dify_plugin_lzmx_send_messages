@@ -1,0 +1,79 @@
+identity:
+  name: tool_lzmx_send_file
+  author: HnBigVolibear
+  label:
+    en_US: tool_lzmx_send_file
+    zh_Hans: 量子密信文件推送器
+    pt_BR: tool_lzmx_send_file
+description:
+  human:
+    en_US: tool_lzmx_send_file, can send file to lzmx-group by your key
+    zh_Hans: 量子密信文件推送器, 可将指定的文件, 推送至指定机器人key的群聊中。支持批量发送多个文件、支持重命名文件。
+    pt_BR: tool_lzmx_send_file, can send file to lzmx-group by your key
+  llm: 量子密信文件推送器, 可将指定的文件, 推送至指定机器人key的群聊中。
+parameters:
+  - name: robot_key
+    type: secret-input
+    required: true
+    label:
+      en_US: lzmx robot Key
+      zh_Hans: 量子密信群机器人Key
+      pt_BR: lzmx robot Key
+    human_description:
+      en_US: lzmx robot key
+      zh_Hans: 量子密信群机器人key
+      pt_BR: lzmx robot key
+    llm_description: 量子密信群机器人key
+    form: llm
+  - name: send_files
+    type: files
+    required: true
+    label:
+      en_US: send files
+      zh_Hans: 发送的文件流(支持多选)
+      pt_BR: send files
+    human_description:
+      en_US: send files
+      zh_Hans: 发送的文件流(支持多选、也支持诸如HTTP请求获取到的files文件变量)
+      pt_BR: send files
+    llm_description: 发送的文件(支持多选、也支持诸如HTTP请求获取到的files文件变量)
+    form: llm
+  - name: is_www_to_lzmx
+    type: select
+    required: true
+    default: 'DCN'
+    label:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    human_description:
+      en_US: is_www_to_lzmx
+      zh_Hans: 选择发送网络类型
+      pt_BR: is_www_to_lzmx
+    llm_description: 选择发送网络类型
+    form: form
+    options:
+      - label: 
+          en_US: 'DCN'
+          zh_Hans: 'DCN'
+        value: 'DCN'
+      - label: 
+          en_US: 'Internet'
+          zh_Hans: '公网'
+        value: '公网'
+  - name: rename
+    type: string
+    required: false
+    label:
+      en_US: rename
+      zh_Hans: 重命名(一般不填, 即默认文件原名)
+      pt_BR: rename
+    human_description:
+      en_US: rename your file
+      zh_Hans: 重命名你的文件(可选！如果你确实要改原文件名)。请注意，这里你需要写完整名称，即带上后缀，比如“xxx.doc”。批量发送多文件时将自动后缀+1！
+      pt_BR: rename your file
+    llm_description: 重命名你的文件(不填即默认文件原名)
+    form: llm
+extra:
+  python:
+    source: tools/tool_lzmx_send_file.py
