@@ -79,8 +79,8 @@ class tool_lzmx_send_text(Tool):
                 webhook_url = f"http://imtwo.zdxlz.com/im-external/v1/webhook/send?key={lzmx_key}" 
                 response = requests.post(webhook_url, data=json.dumps(data), headers=headers, timeout=4)
             else:
-                # print('当前通过DCN发送量子密信')
-                webhook_url = f"https://134.64.75.9:1443/im-external/v1/webhook/send?key={lzmx_key}" 
+                # print('当前通过DCN发送量子密信。考虑信息安全，下面这里的办公内网IP不予公开！')
+                webhook_url = f"https://XXX.XXX.XXX.XXX:XXXX/im-external/v1/webhook/send?key={lzmx_key}" 
                 response = requests.post(webhook_url, data=json.dumps(data), headers=headers, verify=False, timeout=4)
             # 3、返回执行结果
             if response.json().get('code') == 200:
