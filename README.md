@@ -1,5 +1,5 @@
 ## lzmx_send_message      
-### 自制Dify插件：中国电信量子密信消息推送器 
+### 自制Dify插件：量子密信消息推送器 
 
 ![img](./_assets/lzmx.png)
 
